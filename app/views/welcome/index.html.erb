@@ -2,22 +2,23 @@
 
 <h1>Welcome#index</h1>
 <% @data["sections"].each do |section| %>
-<div class="section">
-    <div class="section_header">
-        <span class="border"><%= section["title"] if section["title"] %></span>
+    <div class="section">
+        <div class="section_header">
+            <span class="border"><%= section["title"] if section["title"] %></span>
+        </div>
     </div>
-</div>
-<div class="section_body">
-    <p><%= section["statement"] if section["statement"] %></p>
-</div>
+
+    <% if section["type"] %>
+        <% type_path = "shared/panels/" + section["type"] %>
+        <%= render partial: type_path %>
+        <div class="section_body">
+            <p><%= section["statement"] if section["statement"] %></p>
+        </div>
+    <% end %>
+
 <% end %>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<!-- The social media icon bar -->
-<div class="icon-bar"> 
-<
-  <a href="#" class="github"><i class="fa fa-github"></i></a> 
-  <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
-  <a href="#" class="instagram"><i class="fa fa-instagram"></i></a> 
-</div>
+
+<%= render partial: "shared/social_media" %>
