@@ -1,2 +1,22 @@
+
+
 <h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+<% @data["sections"].each do |section| %>
+<div class="section">
+    <div class="section_header">
+        <span class="border"><%= section["title"] if section["title"] %></span>
+    </div>
+</div>
+<div class="section_body">
+    <p><%= section["statement"] if section["statement"] %></p>
+</div>
+<% end %>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- The social media icon bar -->
+<div class="icon-bar"> 
+  <a href="#" class="github"><i class="fa fa-github"></i></a> 
+  <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+  <a href="#" class="instagram"><i class="fa fa-instagram"></i></a> 
+</div>
