@@ -1,5 +1,5 @@
 class WelcomeController < ApplicationController
   def index
-    @data = RESUME_DATA
+    @data = ResumeHelper.get_resume_data
   end
 end
