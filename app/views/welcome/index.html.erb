@@ -1,6 +1,6 @@
 
 <% @data["sections"].each_with_index do |section, index| %>
-    <div class="section">
+    <div class="section"  <% if section["asset"] %>style="background-image: url(<%=section["asset"] %>)"<% end %>>
         <div class="section_header">
             <span class="border"><%= index %><%= section["title"] if section["title"] %></span>
         </div>
@@ -8,7 +8,7 @@
 
     <% if section["type"] %>
         <% type_path = "shared/panels/" + section["type"] %>
-        <div class="section_body">
+        <div class="section_body" >
             <%= (render type_path, section: section ) rescue nil %>
         </div>
     <% end %>
