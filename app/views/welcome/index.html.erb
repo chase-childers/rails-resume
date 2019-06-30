@@ -2,7 +2,7 @@
 <% @data["sections"].each_with_index do |section, index| %>
     <div class="section"  <% if section["asset"] %>style="background-image: url(<%=section["asset"] %>)"<% end %>>
         <div class="section_header">
-            <span class="border"><%= index %><%= section["title"] if section["title"] %></span>
+            <span class="border" <% if section["email"] %>onClick="email('<%= section["email"]%>')" <%end%> ><%= index %><%= section["title"] if section["title"] %></span>
         </div>
     </div>
 

@@ -34,3 +34,7 @@ function openTab(event, company) {
     event.currentTarget.className += " active";
 
 }
+
+function email(email) {
+    window.open("mailto:" + email);
+}
