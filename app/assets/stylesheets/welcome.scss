@@ -124,7 +124,6 @@
   padding: 25px 25px;
   width: 100%;
   border: 1px solid #ccc;
-  border-left: none;
   display: flex;
 }
 
@@ -233,5 +232,9 @@
     -webkit-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
+  }
+
+  .tabcontent {
+    border-left: none;
   }
 }
