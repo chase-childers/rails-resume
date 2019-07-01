@@ -1,11 +1,16 @@
+<div class="jobs_section">
 <div class="tab">
 <% section["jobs"].each_with_index do |job, index| %>
-<button class="tablinks <% if index==0 %>active <% end %>" onclick="openTab(event, '<%=job["company"]%>')"><%=job["company"]%></button>
+<button class="tablinks <% if index==0 %>active <% end %>" onclick="openTab('<%=job["company"]%>')"><%=job["company"]%></button>
 <% end %>
 </div>
 
 <% section["jobs"].each_with_index do |job, index| %>
-    <div class="tabcontent" id="<%= job["company"] %>" <% if index==0 %> style="display: block"<% else %> style="display:none"<% end %>>
+    <% if mobile_device == "mobile" %>
+    <div class="tabcontent" id="<%= job["company"] %>" style="display:block">
+    <% else %>
+    <div class="tabcontent" id="<%= job["company"] %>" style="display:<% if index==0 %>block"<% else %>none<% end %>">
+    <% end %>
     <div class="jobheader">
     <% if job["asset"] %><img src="<%= job["asset"] %>"><% end %>
     <h2><%= job["company"] %></h2>
@@ -23,3 +28,4 @@
     <% end %>    
     </div>
 <% end %>
+</div>

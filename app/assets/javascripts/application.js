@@ -13,7 +13,7 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
-function openTab(event, company) {
+function openTab(company) {
         // Declare all variables
     var i, tabcontent, tablinks;
 
@@ -26,14 +26,18 @@ function openTab(event, company) {
     // Get all elements with class="tablinks" and remove the class "active"
     tablinks = document.getElementsByClassName("tablinks");
     for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" active", "");
+        if (tablinks[i].textContent != company) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        } else if (tablinks[i].textContent == company && !tablinks[i].className.includes("active")) {
+            tablinks[i].className = tablinks[i].className + " active"
+        }
     }
 
     // Show the current tab, and add an "active" class to the link that opened the tab
     document.getElementById(company).style.display = "block";
-    event.currentTarget.className += " active";
-
 }
+
+
 
 function email(email) {
     window.open("mailto:" + email);
