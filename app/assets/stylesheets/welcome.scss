@@ -48,13 +48,7 @@
 }
 
 /* Fixed/sticky icon bar (vertically aligned 50% from the top of the screen) */
-.icon-bar {
-    position: fixed;
-    bottom: 5%;
-    -webkit-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
-  }
+
   
   /* Style the icon bar links */
   .icon-bar a {
@@ -194,5 +188,13 @@
   .jobs_section {
     display:flex;
     width: 100%;
+  }
+
+  .icon-bar {
+    position: fixed;
+    bottom: 5%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
   }
 }
