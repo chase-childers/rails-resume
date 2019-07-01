@@ -145,6 +145,30 @@
   left: 10px;
 }
 
+
+.positions h3 {
+  text-align: center;
+}
+
+.positions p {
+  text-align: center;
+  font-style: italic;
+  color: #aaa;
+}
+
+.points {
+  list-style-type: none;
+  padding-inline-start: 0px;
+}
+
+.points li {
+  margin: 10px 0;
+  border-bottom: 1px solid grey;
+}
+.points li:last-child {
+  border:none;
+}
+
 .experience {
   padding: 25px 25px;
 }
@@ -188,6 +212,19 @@
   .jobs_section {
     display:flex;
     width: 100%;
+  }
+
+  .positions {
+    text-align: justify;
+  }
+
+  .points {
+    list-style-type: disc;
+    padding-inline-start: 40px;
+  }
+
+  .points li {
+    border:none;
   }
 
   .icon-bar {

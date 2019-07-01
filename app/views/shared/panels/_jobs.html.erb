@@ -6,7 +6,7 @@
 </div>
 
 <% section["jobs"].each_with_index do |job, index| %>
-    <% if mobile_device == "mobile" %>
+    <% if mobile_device != "desktop" %>
     <div class="tabcontent" id="<%= job["company"] %>" style="display:block">
     <% else %>
     <div class="tabcontent" id="<%= job["company"] %>" style="display:<% if index==0 %>block"<% else %>none<% end %>">
@@ -18,8 +18,9 @@
     </div>
     <% job["positions"].each do |pos| %>
         <div class="positions">
-            <h3><%= pos["team"] %> - <%= pos["title"] %></h3>
-            <ul>
+            <h3><%= pos["team"] %> </h3>
+            <p><%= pos["title"] %></p>
+            <ul class="points">
             <% pos["points"].each do |point| %>
                 <li><%= point %></li>
             <% end %>
