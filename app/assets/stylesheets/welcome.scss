@@ -154,3 +154,23 @@
   position: relative;
   left: 10px;
 }
+
+.experience {
+  padding: 25px 25px;
+}
+
+.experience img {
+  float:right;
+  height: 250px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-radius: 5px 5px 5px 5px;
+}
+
+.experience img:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.experience_container {
+  overflow: auto;
+}
