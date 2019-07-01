@@ -44,6 +44,7 @@
     text-align:center;
     text-align: justify;
     display: flex;
+    width: 100%;
 }
 
 /* Fixed/sticky icon bar (vertically aligned 50% from the top of the screen) */
@@ -67,9 +68,9 @@
   
   /* Style the social media icons with color, if you want */
   .icon-bar a:hover {
-    background-color: #000;
+    background-color: #777;
   }
-  
+
   .github {
       background: #000;
       color: white;
@@ -130,9 +131,26 @@
 .tabcontent {
   box-sizing: border-box;
   float: left;
-  padding: 25px 12px;
+  padding: 25px 25px;
+  width: 100%;
   border: 1px solid #ccc;
-  width: 85%;
   border-left: none;
   display: flex;
+}
+
+.logo
+{
+  background-repeat: no-repeat;
+  padding-left: 30px;
+  display: block;
+}
+
+.jobheader img {
+  float: right;
+  height: 75px;
+}
+
+.jobheader h2 {
+  position: relative;
+  left: 10px;
 }

@@ -1,13 +1,16 @@
 <div class="tab">
 <% section["jobs"].each_with_index do |job, index| %>
-<button class="tablinks <% if index==0 %>active <% end %>" onclick="openTab(event, '<%=job["company"]%>')"><%=job["company"]%> </button>
+<button class="tablinks <% if index==0 %>active <% end %>" onclick="openTab(event, '<%=job["company"]%>')"><%=job["company"]%></button>
 <% end %>
 </div>
 
 <% section["jobs"].each_with_index do |job, index| %>
     <div class="tabcontent" id="<%= job["company"] %>" <% if index==0 %> style="display: block"<% else %> style="display:none"<% end %>>
+    <div class="jobheader">
+    <% if job["asset"] %><img src="<%= job["asset"] %>"><% end %>
     <h2><%= job["company"] %></h2>
     <p><%= job["time"] %></p>
+    </div>
     <% job["positions"].each do |pos| %>
         <div class="positions">
             <h3><%= pos["team"] %> - <%= pos["title"] %></h3>
