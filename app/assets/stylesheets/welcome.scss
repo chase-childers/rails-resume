@@ -106,7 +106,6 @@
   float: left;
   padding: 25px 25px;
   width: 100%;
-  border: 1px solid #ccc;
   display: flex;
 }
 
@@ -191,17 +190,21 @@
   padding: 16px;
   transition: all 0.3s ease;
   color: #84bfff;
-  font-size: 32px;
+  font-size: 26px;
 }
 .project-card h2 {
   margin: 0px;
-  font-size: 32px;
+  font-size: 26px;
   color: white;
   display:inline;
 }
 
 .project_urls {
   float: right;
+}
+
+.project_urls i {
+  font-size: 20px;
 }
 
 .project_technologies {
