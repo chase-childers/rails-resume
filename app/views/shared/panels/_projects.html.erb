@@ -1,0 +1,14 @@
+<div class="projects">
+<% section["projects"].each do |project| %>
+<div class="project-card">
+<i class="fa fa-folder-open"></i>
+<h2><%= project["title"] %></h2>
+<p><%= project["description"] %></p>
+<ul class="project_technologies">
+<% project["technologies"].each do |tech| %>
+<li><%= tech %></li>
+<% end %>
+</ul>
+</div>
+<% end %>
+</div>
