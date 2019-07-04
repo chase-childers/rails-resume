@@ -3,6 +3,17 @@
 <div class="project-card">
 <i class="fa fa-folder-open"></i>
 <h2><%= project["title"] %></h2>
+<% if project["urls"] %>
+<div class="project_urls">
+<% project["urls"].each do |url_name, url| %>
+<% url_icon_class = "link" %>
+<% if url_name == "github" %>
+<% url_icon_class = "github" %>
+<% end %>
+<a href="<%= url %>" class="link-icon"><i class="fa fa-<%=url_icon_class %>"></i></a>
+<% end %>
+</div>
+<% end %>
 <p><%= project["description"] %></p>
 <ul class="project_technologies">
 <% project["technologies"].each do |tech| %>
