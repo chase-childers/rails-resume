@@ -15,7 +15,7 @@ phases:
       - echo "URI From ENV Var $REPOSITORY_URI"
       - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
       - IMAGE_TAG=${COMMIT_HASH:=latest}  
-      - make build-prod
+      - docker build -t rails-resume-prod --build-arg TARGET_ENVIRONMENT=production -f docker/Dockerfile . 
 
   build:
     commands:
