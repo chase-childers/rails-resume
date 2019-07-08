@@ -28,7 +28,7 @@ phases:
       - echo Pushing the Docker images...
       - docker push $REPOSITORY_URI:$IMAGE_TAG
       - echo "[{\"name\":\"rails-resume\",\"imageUri\":\"$REPOSITORY_URI:$IMAGE_TAG\"}]"
-      - echo '[{"name":"rails-resume","imageUri":"$REPOSITORY_URI:$IMAGE_TAG"}]' > imagedefinitions.json
+      - echo "[{\"name\":\"rails-resume\",\"imageUri\":\"$REPOSITORY_URI:$IMAGE_TAG\"}]" > imagedefinitions.json
 artifacts:
   files:
     - imagedefinitions.json
