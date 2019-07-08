@@ -3,7 +3,6 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      ruby: 2.4
       docker: 18
     commands:
       - nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://127.0.0.1:2375 --storage-driver=overlay2&
@@ -16,13 +15,12 @@ phases:
       - echo "URI From ENV Var $REPOSITORY_URI"
       - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
       - IMAGE_TAG=${COMMIT_HASH:=latest}  
-      - make build-prod
 
   build:
     commands:
       - echo Build started on `date`
       - echo Building the Docker image...
-      - docker build -t $REPOSITORY_URI:latest .
+      - docker build -t $REPOSITORY_URI:latest --build-arg TARGET_ENVIRONMENT=production -f docker/Dockerfile . 
       - docker tag $REPOSITORY_URI:latest $REPOSITORY_URI:$IMAGE_TAG
   post_build:
     commands:
