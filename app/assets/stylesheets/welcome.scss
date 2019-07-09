@@ -61,6 +61,13 @@
     background-color: #777;
   }
 
+  #contact_pos {
+    overflow:auto;
+    text-align: center;
+    padding: 50px;
+    font-family: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", "Lucida Console", Monaco, monospace;
+  }
+
   .non_contact a {
     display: block;
     text-align: center;
