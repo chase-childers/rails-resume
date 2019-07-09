@@ -2,16 +2,14 @@
 <% @data["sections"].each_with_index do |section, index| %>
     <div class="section"  <% if section["asset"] %>style="background-image: url(<%=section["asset"] %>);<% if index==0 %>height: 1000px;<% end %>"<% end %>>
         <div class="section_header">
-            <span class="border" <% if section["email"] %>onClick="email('<%= section["email"]%>')" <%end%> ><%= index %><%= section["title"] if section["title"] %></span>
+            <span class="border"><%= index %><%= section["title"] if section["title"] %></span>
         </div>
     </div>
 
-    <% if section["type"] %>
+    <% if section["type"] && is_valid_section?(section["type"]) %>
         <% type_path = "shared/panels/" + section["type"] %>
         <div class="section_body" >
-            <%= (render type_path, section: section ) rescue nil %>
+            <%= (render type_path, section: section ) %>
         </div>
     <% end %>
 <% end %>
-
-<%= render partial: "shared/social_media" %>

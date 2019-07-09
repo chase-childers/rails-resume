@@ -42,12 +42,12 @@
     background-color: black;
     text-align:center;
     text-align: justify;
-    display: flex;
     width: 100%;
 }
   
+  
   /* Style the icon bar links */
-  .icon-bar a {
+  .contact a {
     display: block;
     text-align: center;
     padding: 16px;
@@ -57,10 +57,27 @@
   }
   
   /* Style the social media icons with color, if you want */
-  .icon-bar a:hover {
+  .contact a:hover {
     background-color: #777;
   }
 
+  .non_contact a {
+    display: block;
+    text-align: center;
+    padding: 16px;
+    transition: all 0.3s ease;
+    color: white;
+    font-size: 20px;
+  }
+  
+  /* Style the social media icons with color, if you want */
+  .non_contact a:hover {
+    background-color: #777;
+  }
+
+  .non_contact {
+    transition: 1s;
+  }
   .github {
       background: #000;
       color: white;
@@ -99,16 +116,6 @@
     display: none;
   }
 
-
-/* Style the tab content */
-.tabcontent {
-  box-sizing: border-box;
-  float: left;
-  padding: 25px 25px;
-  width: 100%;
-  display: flex;
-}
-
 .logo
 {
   background-repeat: no-repeat;
@@ -116,9 +123,15 @@
   display: block;
 }
 
+.jobheader {
+background-color: #333;
+padding: 10px 25px;
+}
+
 .jobheader img {
   float: right;
   height: 75px;
+  margin-block-start: 0.83em;
 }
 
 .jobheader h2 {
@@ -135,6 +148,17 @@
   text-align: center;
   font-style: italic;
   color: #aaa;
+}
+
+.experience_list{
+  list-style-type: none;
+  padding-inline-start: 0px;
+  font-family: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", "Lucida Console", Monaco, monospace;
+}
+
+.experience_list li {
+  float:left;
+  padding: 16px;
 }
 
 .points {
@@ -218,6 +242,12 @@
 }
 
 
+.tabcontent {
+  box-sizing: border-box;
+  padding: 25px 25px;
+  width: 100%;
+}
+
 @media only screen and (min-width: 768px) {
   .projects {
     flex: auto;
@@ -239,44 +269,8 @@
     border-radius: 5px 5px 5px 5px;
   }
 
-  .tab {
-    display: block;
-    float: left;
-    background-color: #000;
-    width: 10%;
-    box-sizing: border-box;
-  }
-
-
-  .tab button {
-    display: block;
-    color: white;
-    padding: 22px 16px;
-    background-color: #888888;
-    width: 100%;
-    border: none;
-    outline: none;
-    text-align: left;
-    cursor: pointer;
-    transition: 0.3s;
-  }
-
-  /* Change background color of buttons on hover */
-.tab button:hover {
-  background-color: #ddd;
-}
-
-/* Create an active/current "tab button" class */
-.tab button.active {
-  background-color: #444444;
-}
-
   .experience p {
     padding: 50px 50px;
-  }
-  .jobs_section {
-    display:flex;
-    width: 100%;
   }
 
   .positions {
@@ -291,16 +285,12 @@
   .points li {
     border:none;
   }
-
-  .icon-bar {
+  .contact {
     position: fixed;
     bottom: 5%;
     -webkit-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
-  }
-
-  .tabcontent {
-    border-left: none;
+    transition: 1s;
   }
 }

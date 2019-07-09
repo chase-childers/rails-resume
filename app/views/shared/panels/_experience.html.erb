@@ -4,5 +4,10 @@
 <p>
 <%= section["statement"] %>
 </p>
+<ul class="experience_list" style="display:none">
+<% section["experience"].each do |experience| %>
+<li><%= experience %> </li>
+<% end %>
+</ul>
 </div>
 </div>

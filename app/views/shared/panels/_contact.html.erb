@@ -1,11 +1,12 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+<div id="contact_pos">
+</div>
 <% social_medias = ["linkedin","github","instagram","facebook","twitter","envelope"] %>
-<% if @data["social_media"] %>
-<div class="icon-bar"> 
+<% if section["contact"] %>
+<div class="contact" id="contact_bar"> 
   <% social_medias.each do |sm| %>
-  <% if @data["social_media"][sm] %>
-    <a href="<%= @data["social_media"][sm] %>" class="<%= sm %>"><i class="fa fa-<%= sm %>"></i></a>
+  <% if section["contact"][sm] %>
+    <a href="<%= section["contact"][sm] %>" class="<%= sm %>"><i class="fa fa-<%= sm %>"></i></a>
   <% end %> 
   <% end %>
 </div>  

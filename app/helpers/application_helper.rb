@@ -5,4 +5,8 @@ module ApplicationHelper
         return "mobile" if agent =~ /Mobile|webOS/
         return "desktop"
     end
+
+    def is_valid_section?(section) 
+        ["experience", "information", "jobs", "projects", "contact"].include? section
+    end
 end

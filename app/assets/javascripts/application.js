@@ -13,32 +13,17 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
-function openTab(company) {
-        // Declare all variables
-    var i, tabcontent, tablinks;
+window.onscroll = function() {scrollFunction()};
 
-    // Get all elements with class="tabcontent" and hide them
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
-    }
-
-    // Get all elements with class="tablinks" and remove the class "active"
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-        if (tablinks[i].textContent != company) {
-            tablinks[i].className = tablinks[i].className.replace(" active", "");
-        } else if (tablinks[i].textContent == company && !tablinks[i].className.includes("active")) {
-            tablinks[i].className = tablinks[i].className + " active"
-        }
-    }
-
-    // Show the current tab, and add an "active" class to the link that opened the tab
-    document.getElementById(company).style.display = "block";
-}
-
-
-
-function email(email) {
-    window.open("mailto:" + email);
+function scrollFunction() {
+  var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+  var contact_height = document.getElementById("contact_pos").getBoundingClientRect().top
+  offset = contact_height - (document.body.getBoundingClientRect().top + screen.height)
+  if (document.documentElement.scrollTop > offset) {
+      console.log("Expand")
+      document.getElementById("contact_bar").className = "non_contact"
+  } else {
+      console.log("Contract")
+      document.getElementById("contact_bar").className = "contact"
+  }
 }
