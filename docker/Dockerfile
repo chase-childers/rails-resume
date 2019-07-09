@@ -6,6 +6,9 @@ RUN apt-get update && apt-get install -y nodejs
 ARG TARGET_ENVIRONMENT 
 ENV RAILS_ENV $TARGET_ENVIRONMENT
 
+ARG RAILS_MASTER_KEY
+ENV RAILS_MASTER_KEY $RAILS_MASTER_KEY
+
 RUN gem install bundler
 
 # Copy application code

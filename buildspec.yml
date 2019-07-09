@@ -1,5 +1,9 @@
 version: 0.2
 
+
+env:
+  parameter-store:
+    RAILS_MASTER_KEY: "rails-resume-master-key"
 phases:
   install:
     runtime-versions:
@@ -20,7 +24,7 @@ phases:
     commands:
       - echo Build started on `date`
       - echo Building the Docker image...
-      - docker build -t $REPOSITORY_URI:latest --build-arg TARGET_ENVIRONMENT=production -f docker/Dockerfile . 
+      - docker build -t $REPOSITORY_URI:latest --build-arg TARGET_ENVIRONMENT=production RAILS_MASTER_KEY=$RAILS_MASTER_KEY -f docker/Dockerfile . 
       - docker tag $REPOSITORY_URI:latest $REPOSITORY_URI:$IMAGE_TAG
   post_build:
     commands:
