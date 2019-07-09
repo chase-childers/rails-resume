@@ -20,10 +20,8 @@ function scrollFunction() {
   var contact_height = document.getElementById("contact_pos").getBoundingClientRect().top
   offset = contact_height - (document.body.getBoundingClientRect().top + screen.height)
   if (document.documentElement.scrollTop > offset) {
-      console.log("Expand")
       document.getElementById("contact_bar").className = "non_contact"
   } else {
-      console.log("Contract")
       document.getElementById("contact_bar").className = "contact"
   }
 }
