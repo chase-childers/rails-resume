@@ -13,6 +13,8 @@ COPY . /application
 
 WORKDIR /application
 
+RUN echo "$TARGET_ENVIRONMENT"
+
 RUN if [ "$TARGET_ENVIRONMENT" = "production" ] ; then bundle install --deployment --without development test ; else bundle install --deployment ; fi
 
 ENTRYPOINT ./scripts/start.sh 
