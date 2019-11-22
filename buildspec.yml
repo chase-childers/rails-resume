@@ -39,7 +39,9 @@ phases:
       - docker push $STAG_URI:$IMAGE_TAG
       - docker push $STAG_URI:latest
       - echo "[{\"name\":\"rails-resume-prod\",\"imageUri\":\"$PROD_URI:$IMAGE_TAG\"},{\"name\":\"rails-resume-staging\",\"imageUri\":\"$STAG_URI:$IMAGE_TAG\"}]"
-      - echo "[{\"name\":\"rails-resume-prod\",\"imageUri\":\"$PROD_URI:$IMAGE_TAG\"},{\"name\":\"rails-resume-staging\",\"imageUri\":\"$STAG_URI:$IMAGE_TAG\"}]" > imagedefinitions.json
+      - echo "[{\"name\":\"rails-resume-prod\",\"imageUri\":\"$PROD_URI:$IMAGE_TAG\"}]" > prod.json
+      - echo "[{\"name\":\"rails-resume-staging\",\"imageUri\":\"$STAG_URI:$IMAGE_TAG\"}]" > staging.json
 artifacts:
   files:
-    - imagedefinitions.json
+    - production.json
+    - staging.json
