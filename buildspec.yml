@@ -18,22 +18,30 @@ phases:
       - $(aws ecr get-login --region $AWS_DEFAULT_REGION --no-include-email)
       - echo "URI From ENV Var $REPOSITORY_URI"
       - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
-      - IMAGE_TAG=${COMMIT_HASH:=latest}  
-
+      - IMAGE_TAG=${COMMIT_HASH:=latest}
+      - PROD_URI=$REPOSITORY_URI/production
+      - STAG_URI=$REPOSITORY_URI/staging
   build:
     commands:
       - echo Build started on `date`
-      - echo Building the Docker image...
-      - docker build -t $REPOSITORY_URI:latest --build-arg TARGET_ENVIRONMENT=production --build-arg RAILS_MASTER_KEY=$RAILS_MASTER_KEY -f docker/Dockerfile . 
-      - docker tag $REPOSITORY_URI:latest $REPOSITORY_URI:$IMAGE_TAG
+      - echo Building the Production Docker image...
+      - docker build -t $PROD_URI:latest --build-arg TARGET_ENVIRONMENT=production --build-arg RAILS_MASTER_KEY=$RAILS_MASTER_KEY -f docker/Dockerfile . 
+      - docker tag $PROD_URI:latest $PROD_URI:$IMAGE_TAG
+      - echo Building the Staging Docker image...
+      - docker build -t $STAG_URI:latest --build-arg TARGET_ENVIRONMENT=staging --build-arg RAILS_MASTER_KEY=$RAILS_MASTER_KEY -f docker/Dockerfile . 
+      - docker tag $STAG_URI:latest $STAG_URI:$IMAGE_TAG
   post_build:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker images...
-      - docker push $REPOSITORY_URI:$IMAGE_TAG
-      - docker push $REPOSITORY_URI:latest
-      - echo "[{\"name\":\"rails-resume\",\"imageUri\":\"$REPOSITORY_URI:$IMAGE_TAG\"}]"
-      - echo "[{\"name\":\"rails-resume\",\"imageUri\":\"$REPOSITORY_URI:$IMAGE_TAG\"}]" > imagedefinitions.json
+      - docker push $PROD_URI:$IMAGE_TAG
+      - docker push $PROD_URI:latest
+      - docker push $STAG_URI:$IMAGE_TAG
+      - docker push $STAG_URI:latest
+      - echo "[{\"name\":\"rails-resume-prod\",\"imageUri\":\"$PROD_URI:$IMAGE_TAG\"},{\"name\":\"rails-resume-staging\",\"imageUri\":\"$STAG_URI:$IMAGE_TAG\"}]"
+      - echo "[{\"name\":\"rails-resume-prod\",\"imageUri\":\"$PROD_URI:$IMAGE_TAG\"}]" > production.json
+      - echo "[{\"name\":\"rails-resume-staging\",\"imageUri\":\"$STAG_URI:$IMAGE_TAG\"}]" > staging.json
 artifacts:
   files:
-    - imagedefinitions.json
+    - production.json
+    - staging.json
