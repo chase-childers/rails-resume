@@ -203,7 +203,7 @@ padding: 10px 25px;
 .projects {
   flex: auto;
   display: grid;
-  padding: 20px 5%;
+  padding: 20px 5% 5%;
   position: relative;
 }
 .project-card {
@@ -259,7 +259,7 @@ padding: 10px 25px;
   .projects {
     flex: auto;
     display: grid;
-    padding: 20px 5%;
+    padding: 20px 5% 5%;
     align-content: space-between;
     gap: 5%;
     justify-content: space-around;

@@ -13,8 +13,9 @@ module ResumeHelper
         end
 
         if @@resume_data.nil? || Time.now > @@next_pull
-            resp = S3_CLIENT.get_object({bucket:'chase-childers', key:'resume_data.yml'})
+            resp = S3_CLIENT.get_object({bucket:S3_INFO[:bucket], key:S3_INFO[:file]})
             if resp.etag != @@resume_hash
+                Rails.logger.info("Reloading Data: #{S3_INFO}")
                 @@resume_data = YAML::load(resp.body.string)
                 @@resume_hash = resp.etag
             end

@@ -1,3 +1,5 @@
+![Build Status](https://codebuild.us-east-2.amazonaws.com/badges?uuid=eyJlbmNyeXB0ZWREYXRhIjoia28yTFlVR0FKQ3RRSmY5d0VoOUlqNi9TdG10WTMrK2RJbTd4QVNaRkFmNHBhQlZUK2NLdGo4ejlRbDVUTHRPektsME8yd2JoNkY1VzEvY1ZrODF0ekEwPSIsIml2UGFyYW1ldGVyU3BlYyI6IkdqU2dpNXZqVVZZem9pL1QiLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D&branch=master)
+
 # Rails Resume
 
 This is the rails variation of my personal portfolio site built with [Ruby on Rails](https://rubyonrails.org/) and deployed via Docker Containers.
