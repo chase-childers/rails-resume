@@ -8,6 +8,10 @@ Rails.application.config.assets.version = '1.0'
 # Add Yarn node_modules folder to the asset load path.
 Rails.application.config.assets.paths << Rails.root.join('node_modules')
 
+
+# Enable serving of images, stylesheets, and JavaScripts from an asset server.
+Rails.application.config.action_controller.asset_host = ENV['CDN_HOST'] if ENV['CDN_HOST'] 
+
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.
