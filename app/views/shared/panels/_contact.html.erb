@@ -4,13 +4,10 @@
 <%= section["statement"] %>
 </h1>
 </div>
-<% social_medias = ["linkedin","github","instagram","facebook","twitter","envelope"] %>
 <% if section["contact"] %>
 <div class="contact" id="contact_bar"> 
-  <% social_medias.each do |sm| %>
-  <% if section["contact"][sm] %>
-    <a href="<%= section["contact"][sm] %>" class="<%= sm %>"><i class="fa fa-<%= sm %>"></i></a>
-  <% end %> 
+  <% section["contact"].each do |contact| %>
+    <a href="<%= contact["link"] %>" class="<%= contact["icon"] %>"><i class="fa fa-<%= contact["icon"] %>"></i></a>
   <% end %>
 </div>  
 <% end %>
