@@ -5,12 +5,9 @@
 <h2><%= project["title"] %></h2>
 <% if project["urls"] %>
 <div class="project_urls">
-<% project["urls"].each do |url_name, url| %>
-<% url_icon_class = "link" %>
-<% if url_name == "github" %>
-<% url_icon_class = "github" %>
-<% end %>
-<a href="<%= url %>" class="link-icon"><i class="fa fa-<%=url_icon_class %>"></i></a>
+<% project["urls"].each do |url_info| %>
+<% url_icon_class = url_info["icon"] %>
+<a href="<%= url_info["link"] %>" class="link-icon"><i class="fa fa-<%=url_icon_class %>"></i></a>
 <% end %>
 </div>
 <% end %>
