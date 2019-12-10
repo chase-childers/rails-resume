@@ -16,3 +16,5 @@ Rails.application.config.action_controller.asset_host = ENV['CDN_HOST'] if ENV['
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.
 # Rails.application.config.assets.precompile += %w( application.css )
+JAVASCRIPT_URL = ENV.fetch('JS_URL'){'http://chase-childers.s3.us-east-2.amazonaws.com/assets/application.js'}
+CSS_URL = ENV.fetch('CSS_URL'){'http://chase-childers.s3.us-east-2.amazonaws.com/assets/welcome.css'}
