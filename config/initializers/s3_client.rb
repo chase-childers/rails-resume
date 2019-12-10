@@ -1,8 +1,8 @@
 require 'aws-sdk-s3'
 
 S3_INFO = {
-    :bucket => ENV.fetch("BUCKET_NAME") {"rails-resume"},
-    :file => ENV.fetch("RESUME_FILE") {"resume_data.yml"}
+    :bucket => ENV.fetch("BUCKET_NAME") {"chase-childers"},
+    :file => ENV.fetch("RESUME_FILE") {"data/resume_data.yml"}
 }
 
 Rails.logger.info("Started with S3_INFO: #{S3_INFO}")

@@ -9,4 +9,12 @@ module ApplicationHelper
     def is_valid_section?(section) 
         ["experience", "information", "jobs", "projects", "contact"].include? section
     end
+
+    def js_url
+        JAVASCRIPT_URL
+    end
+
+    def css_url
+        CSS_URL
+    end
 end
